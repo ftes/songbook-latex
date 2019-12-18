@@ -1,0 +1,23 @@
+\documentclass[twoside]{article}
+\input{other/common-packages}
+\usepackage[a4paper]{geometry}
+\usepackage[chorded]{songs}
+\usepackage{array} % For vertical centering in chord table
+
+\songpos{3} % avoids column-breaks, page-breaks, and page-turns within songs whenever possible
+\input{other/chordbook-lengths}
+
+
+\pagestyle{empty}
+
+\input{other/chordbook-indices}
+\input{other/common-title-prefixes}
+
+\begin{document}
+\input{covers/common-cover}\cleardoublepage
+\input{remarks/chordbook-remarks}
+\input{other/common-content}
+\input{chords/chordbook-chords}
+\input{covers/common-backcover}
+
+\end{document}

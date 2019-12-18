@@ -1,0 +1,25 @@
+# Expected Environment Variables (via Travis settings in browser)
+# AWS_BUCKET
+# AWS_ACCESS_KEY_ID
+# AWS_SECRET_ACCESS_KEY
+# SONGS_REPOSITORY_URL
+
+language: python
+python: 3.6
+
+services:
+  - docker
+
+script:
+# Doesn't work on travis for some reason
+#- scripts/generate-chordsheet-pages.sh
+- rm -rf src/songs
+- git clone $SONGS_REPOSITORY_URL src/songs
+- scripts/generate-songlist.sh
+- scripts/make.sh chordbook
+- scripts/make.sh lyricbook
+
+after_success:
+- pip install awscli --upgrade
+- aws s3 cp output/chordbook.pdf s3://$AWS_BUCKET/
+- aws s3 cp output/lyricbook.pdf s3://$AWS_BUCKET/

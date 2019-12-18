@@ -1,0 +1,23 @@
+\documentclass[twoside]{article}
+\input{other/common-packages}
+\usepackage[a6paper]{geometry}
+\usepackage[lyric]{songs}
+
+
+\songpos{0} % maximum density (can lead to page breaks in songs)
+\input{other/lyricbook-lengths}
+\input{other/lyricbook-fix-ragged}
+
+\pagestyle{empty}
+
+\input{other/lyricbook-indices}
+\input{other/common-title-prefixes}
+
+\begin{document}
+\input{covers/common-cover}\cleardoublepage
+\input{remarks/lyricbook-remarks}
+\input{other/common-content}
+
+\input{covers/common-backcover}
+
+\end{document}
