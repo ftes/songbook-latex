@@ -43,6 +43,15 @@ Using chords (e.g. `\[C]`) outside of `\beginverse ... \endverse` or refrain env
 ### Flat chords with `b` instead of `&`
 Search for `b]`. Replace with `&]`.
 
+### Chord at end of word instead of beginning of next
+Incorrect: `hello\[C] world`
+
+Correct: `hello \[C]world`
+
+Leads to a missing space between words in the lyricbook (no chord) output.
+
+Fix: Replace `([^\] ])(\\\[[^\]]*\]) ` with `$1 $2` (vscode).
+
 ## Update chord sheets
 Modify these files:
 - `src/chords/chords.csv`
